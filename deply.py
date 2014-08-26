@@ -9,7 +9,7 @@ class Site:
   
   protocol = 'sftp'
   
-  def __init__(self, host, port, username, password, protocol = 'sftp'):
+  def __init__(self, host, port, username = None, password = None, protocol = 'sftp'):
     self.host = host
     self.port = port
     self.username = username

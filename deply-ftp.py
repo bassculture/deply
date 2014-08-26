@@ -1,6 +1,7 @@
 import paramiko
 import sys
 import os
+import getpass
 
 config = sys.argv[1]
 config_module = __import__(config, globals(), locals(), -1)
@@ -10,6 +11,11 @@ if site.protocol != 'sftp':
   raise 'Protocol ' + site.protocol.toString() + ' not supported'
 
 transport = paramiko.Transport((site.host, site.port))
+if (not site.username):
+    site.username = raw_input('Username: ')
+if (not site.password):
+    site.password = getpass.getpass()
+
 transport.connect(username = site.username, password = site.password)
 sftp = paramiko.SFTPClient.from_transport(transport)
 

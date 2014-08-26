@@ -1,7 +1,7 @@
 import deply as deply
 
 def Site():
-    return deply.Site(host = 'example.com', port = 22, password = 'asdfgh12345', username = 'user')
+    return deply.Site(host = 'example.com', port = 22)
 
 def Puts():
     result = [
